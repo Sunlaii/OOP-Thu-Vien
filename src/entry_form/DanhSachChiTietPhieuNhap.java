@@ -16,24 +16,18 @@ public class DanhSachChiTietPhieuNhap {
         }
         soLuong++;
     }
-
-    public void xoaChiTietPhieuNhap(ChiTietPhieuNhap chiTietPhieuNhap) {
-        if (dSPN == null || soLuong == 0) {
-            return;
-        }
-        ChiTietPhieuNhap[] newDSPN = new ChiTietPhieuNhap[dSPN.length - 1];
-        int index = 0;
-        for (ChiTietPhieuNhap item : dSPN) {
-            if (!item.equals(chiTietPhieuNhap)) {
-                if (index < newDSPN.length) {
-                    newDSPN[index++] = item;
+    public void xoaChiTietPhieuNhap(int index) {
+        if (dSPN != null && index >= 0 && index < dSPN.length) {
+            ChiTietPhieuNhap[] newDSPN = new ChiTietPhieuNhap[dSPN.length - 1];
+            for (int i = 0, j = 0; i < dSPN.length; i++) {
+                if (i != index) {
+                    newDSPN[j++] = dSPN[i];
                 }
             }
+            dSPN = newDSPN;
+            soLuong--;
         }
-        dSPN = newDSPN;
-        soLuong--;
     }
-    //hello
     
 }
 
